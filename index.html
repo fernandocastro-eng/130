@@ -3,60 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Control de Tareas</title>
+    <title>Registro de Compañeros</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="main-card">
-        <header class="header">
-            <h1>Panel de Tareas</h1>
-            <div class="counters">
-                <span class="badge">Total: <b id="count-total">0</b></span>
-                <span class="badge success">Hechas: <b id="count-done">0</b></span>
-            </div>
-        </header>
+    <div class="container">
+        <form id="registroForm">
+            <h2>Registro de Datos de Compañeros</h2>
 
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterTasks('all')">Todas</button>
-            <button class="filter-btn" onclick="filterTasks('pending')">Pendientes</button>
-            <button class="filter-btn" onclick="filterTasks('completed')">Completadas</button>
-        </div>
-
-        <form action="guardar.php" method="POST" id="todo-form" class="task-form">
-            <div class="row">
-                <input type="text" id="in-title" name="titulo" placeholder="Nombre de la tarea..." required>
-                
-                <select id="in-priority" name="prioridad">
-                    <option value="Baja">Prioridad Baja</option>
-                    <option value="Media" selected>Prioridad Media</option>
-                    <option value="Alta">Prioridad Alta</option>
-                </select>
-            </div>
-            
-            <textarea id="in-desc" name="descripcion" placeholder="Descripción detallada (opcional)"></textarea>
-            
-            <div class="row">
-                <input type="date" name="fecha_limite" required>
+            <div class="input-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" placeholder="Ej. Mareily Jackson" required>
             </div>
 
-            <button type="submit" class="btn-save">REGISTRAR TAREA</button>
+            <div class="input-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="foto">Fotografía:</label>
+                <input type="file" id="foto" accept="image/*">
+            </div>
+
+            <button type="submit" id="btnGuardar">Guardar Datos</button>
         </form>
-
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Estado</th>
-                        <th>Detalle</th>
-                        <th>Prioridad</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    </tbody>
-            </table>
-        </div>
     </div>
 
     <script src="script.js"></script>
